@@ -1,0 +1,250 @@
+//  1(a): class, object and methods
+
+class Student {
+    int roll;
+    String name;
+    int marks;
+
+    void set(int r, String n, int m) {
+        roll = r;
+        name = n;
+        marks = m;
+    }
+
+    void show() {
+        System.out.println(roll + " " + name + " " + marks);
+    }
+}
+
+public class StudentDemo {
+    public static void main(String[] args) {
+        Student s1 = new Student();
+        Student s2 = new Student();
+
+        s1.set(101, "Aravind", 78);
+        s2.set(102, "Divya", 91);
+
+        System.out.println("ROLL NAME MARKS");
+        s1.show();
+        s2.show();
+    }
+}
+
+  ...OUTPUT...
+
+ROLL NAME MARKS
+101 Aravind 78
+102 Divya 91
+
+
+// Ex 1(b): array + for loop + if-else + operators
+
+public class MarksArray {
+    public static void main(String[] args) {
+
+        int[] m = {78, 91, 45, 66, 88};
+        int total = 0;
+
+        for (int i = 0; i < m.length; i++) {
+            total = total + m[i];
+
+            if (m[i] >= 50) {
+                System.out.println(m[i] + " Pass");
+            } else {
+                System.out.println(m[i] + " Fail");
+            }
+        }
+
+        double average = (double) total / m.length;
+
+        System.out.println("Total = " + total);
+        System.out.println("Average = " + average);
+    }
+}
+
+...OUTPUT...
+78 Pass
+91 Pass
+45 Fail
+66 Pass
+88 Pass
+Total = 368
+Average = 73.6
+
+
+// Ex 1(c): Common String methods
+
+public class StringDemo {
+    public static void main(String[] args) {
+
+        String s = "SCSVMV University";
+
+        System.out.println("Length : " + s.length());
+        System.out.println("Upper case : " + s.toUpperCase());
+        System.out.println("First six : " + s.substring(0, 6));
+        System.out.println("Position of U : " + s.indexOf('U'));
+        System.out.println("Replace S->X : " + s.replace('S', 'X'));
+        System.out.println("Original : " + s);
+
+        String a = "madam";
+        String b = new StringBuilder(a).reverse().toString();
+
+        if (a.equals(b)) {
+            System.out.println(a + " is a palindrome");
+        } else {
+            System.out.println(a + " is not a palindrome");
+        }
+    }
+}
+
+
+...Output...
+
+Length : 17
+Upper case : SCSVMV UNIVERSITY
+First six : SCSVMV
+Position of U : 7
+Replace S->X : XCXVMV UniverXity
+Original : SCSVMV University
+madam is a palindrome
+
+
+// Case Study 1: Mess Bill using an array of objects
+
+class Boarder {
+    String name;
+    int days;
+
+    Boarder(String n, int d) {
+        name = n;
+        days = d;
+    }
+
+    double bill() {
+        return days * 85.0;
+    }
+}
+
+public class MessBill {
+    public static void main(String[] args) {
+
+        Boarder[] list = {
+            new Boarder("Aravind", 28),
+            new Boarder("Divya", 30),
+            new Boarder("Karthik", 25)
+        };
+
+        double total = 0;
+
+        System.out.println("NAME       DAYS     BILL");
+
+        for (Boarder b : list) {
+            System.out.printf("%-10s %4d %8.2f%n",
+                    b.name, b.days, b.bill());
+
+            total = total + b.bill();
+        }
+
+        System.out.printf("Total collection = Rs. %.2f%n", total);
+    }
+}
+
+
+...Output...
+
+NAME       DAYS     BILL
+Aravind      28  2380.00
+Divya        30  2550.00
+Karthik      25  2125.00
+Total collection = Rs. 7055.00
+
+
+
+• Add a rebate: if days are less than 26, give a 10% discount.
+
+```java
+import java.util.Scanner;
+
+class Boarder {
+    String name;
+    int days;
+
+    Boarder(String name, int days) {
+        this.name = name;
+        this.days = days;
+    }
+
+    double bill() {
+        double amount = days * 85.0;
+
+        // 10% rebate if days are less than 26
+        if (days < 26) {
+            amount = amount - (amount * 0.10);
+        }
+
+        return amount;
+    }
+}
+
+public class MessBill {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter number of students: ");
+        int n = sc.nextInt();
+
+        Boarder[] list = new Boarder[n];
+        double total = 0;
+
+        for (int i = 0; i < n; i++) {
+            System.out.print("Enter name: ");
+            String name = sc.next();
+
+            System.out.print("Enter days: ");
+            int days = sc.nextInt();
+
+            list[i] = new Boarder(name, days);
+        }
+
+        System.out.println("\nNAME       DAYS     BILL");
+
+        for (Boarder b : list) {
+            double amount = b.bill();
+
+            System.out.printf("%-10s %4d %8.2f%n",
+                    b.name, b.days, amount);
+
+            total += amount;
+        }
+
+        System.out.printf("\nTotal collection = Rs. %.2f%n", total);
+
+        sc.close();
+    }
+}
+
+
+### Sample Input
+
+
+Enter number of students: 3
+Enter name: Aravind
+Enter days: 28
+Enter name: Divya
+Enter days: 30
+Enter name: Karthik
+Enter days: 25
+
+
+### Output
+
+
+NAME       DAYS     BILL
+Aravind      28  2380.00
+Divya        30  2550.00
+Karthik      25  1912.50
+
+Total collection = Rs. 6842.50
+
+
