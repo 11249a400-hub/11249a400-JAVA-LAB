@@ -1,0 +1,223 @@
+...3(a)shape demo.java give code an output...
+
+abstract class Shape {
+
+    abstract void area();
+}
+
+class Circle extends Shape {
+
+    double radius = 5;
+
+    void area() {
+        double result = Math.PI * radius * radius;
+        System.out.println("Area of Circle = " + result);
+    }
+}
+
+class Rectangle extends Shape {
+
+    double length = 10;
+    double width = 5;
+
+    void area() {
+        double result = length * width;
+        System.out.println("Area of Rectangle = " + result);
+    }
+}
+
+public class ShapeDemo {
+
+    public static void main(String[] args) {
+
+        Shape circle = new Circle();
+        Shape rectangle = new Rectangle();
+
+        circle.area();
+        rectangle.area();
+    }
+}
+
+
+***output***
+Area of Circle = 78.53981633974483
+Area of Rectangle = 50.0
+
+....3(b)Predefined Interface — Comparable...
+
+class Student implements Comparable<Student> {
+
+    int rollNo;
+    String name;
+
+    Student(int rollNo, String name) {
+        this.rollNo = rollNo;
+        this.name = name;
+    }
+
+    // Compare students based on roll number
+    @Override
+    public int compareTo(Student other) {
+        return this.rollNo - other.rollNo;
+    }
+
+    void display() {
+        System.out.println(rollNo + " - " + name);
+    }
+}
+
+public class ComparableDemo {
+
+    public static void main(String[] args) {
+
+        Student s1 = new Student(103, "Ravi");
+        Student s2 = new Student(101, "Arun");
+        Student s3 = new Student(102, "Kiran");
+
+        Student[] students = {s1, s2, s3};
+
+        System.out.println("Before Sorting:");
+
+        for (Student s : students) {
+            s.display();
+        }
+
+        java.util.Arrays.sort(students);
+
+        System.out.println("\nAfter Sorting by Roll Number:");
+
+        for (Student s : students) {
+            s.display();
+        }
+    }
+}
+
+***output***
+Before Sorting:
+103 - Ravi
+101 - Arun
+102 - Kiran
+
+After Sorting by Roll Number:
+101 - Arun
+102 - Kiran
+103 - Ravi
+
+...case stufy 3:Payment Methods .....
+
+interface Payment {
+
+    void pay(double amount);
+}
+
+class CreditCardPayment implements Payment {
+
+    @Override
+    public void pay(double amount) {
+        System.out.println("Payment of Rs." + amount + " made using Credit Card");
+    }
+}
+
+class UPIPayment implements Payment {
+
+    @Override
+    public void pay(double amount) {
+        System.out.println("Payment of Rs." + amount + " made using UPI");
+    }
+}
+
+class CashPayment implements Payment {
+
+    @Override
+    public void pay(double amount) {
+        System.out.println("Payment of Rs." + amount + " made using Cash");
+    }
+}
+
+public class PaymentDemo {
+
+    public static void main(String[] args) {
+
+        Payment payment;
+
+        payment = new CreditCardPayment();
+        payment.pay(5000);
+
+        payment = new UPIPayment();
+        payment.pay(2500);
+
+        payment = new CashPayment();
+        payment.pay(1000);
+    }
+}
+
+***output***
+payment = new CreditCardPayment();
+payment = new UPIPayment();
+payment = new CashPayment();
+
+....Add a default method in the interface that returns the total,and remove the arithmetic from main.
+
+interface Payment {
+
+    double getAmount();
+
+    double getTax();
+
+    // Default method to calculate total
+    default double getTotal() {
+        return getAmount() + getTax();
+    }
+}
+
+class CreditCard implements Payment {
+
+    public double getAmount() {
+        return 1000;
+    }
+
+    public double getTax() {
+        return 50;
+    }
+}
+
+class UPI implements Payment {
+
+    public double getAmount() {
+        return 2000;
+    }
+
+    public double getTax() {
+        return 100;
+    }
+}
+
+public class PaymentMethods {
+
+    public static void main(String[] args) {
+
+        Payment p1 = new CreditCard();
+        Payment p2 = new UPI();
+
+        System.out.println("Credit Card Amount: " + p1.getAmount());
+        System.out.println("Credit Card Tax: " + p1.getTax());
+        System.out.println("Credit Card Total: " + p1.getTotal());
+
+        System.out.println();
+
+        System.out.println("UPI Amount: " + p2.getAmount());
+        System.out.println("UPI Tax: " + p2.getTax());
+        System.out.println("UPI Total: " + p2.getTotal());
+    }
+}
+
+***output***
+Credit Card Amount: 1000.0
+Credit Card Tax: 50.0
+Credit Card Total: 1050.0
+
+UPI Amount: 2000.0
+UPI Tax: 100.0
+UPI Total: 2100.0
+
+....
