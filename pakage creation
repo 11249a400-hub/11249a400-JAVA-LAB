@@ -1,0 +1,89 @@
+...2.1 — MathUtil.java...
+
+import com.scsvmv.util.MathUtil;
+
+public class Test {
+    public static void main(String[] args) {
+        System.out.println(MathUtil.square(5));
+        System.out.println(MathUtil.cube(5));
+    }
+}
+***output***
+25
+125
+
+Program 2.2 — UseMath.java
+
+import com.scsvmv.util.MathUtil;
+
+public class UseMath {
+
+    public static void main(String[] args) {
+
+        System.out.println("Square of 7 = " + MathUtil.square(7));
+        System.out.println("Cube of 3 = " + MathUtil.cube(3));
+    }
+}
+
+***output**
+Square of 7 = 49
+Cube of 3 = 27
+
+Case Study 2 — Two-Package Fee Calculator
+
+package com.scsvmv.student;
+
+import com.scsvmv.fee.FeeCalculator;
+
+public class Student {
+
+    public static void main(String[] args) {
+
+        double tuitionFee = 25000;
+        double examFee = 2000;
+
+        double totalFee = FeeCalculator.calculateFee(tuitionFee, examFee);
+
+        System.out.println("Tuition Fee = " + tuitionFee);
+        System.out.println("Exam Fee = " + examFee);
+        System.out.println("Total Fee = " + totalFee);
+    }
+}
+
+***output***
+Tuition Fee = 25000.0
+Exam Fee = 2000.0
+Total Fee = 27000.0
+
+...Add a third package com.scsvmv.fee.report that prints the table,and fee apply on call give code and output
+
+package com.scsvmv.student;
+
+import com.scsvmv.fee.FeeCalculator;
+
+public class Student {
+
+    public static void main(String[] args) {
+
+        double tuitionFee = 25000;
+        double examFee = 2000;
+
+        double totalFee = FeeCalculator.calculateFee(tuitionFee, examFee);
+
+        System.out.println("Total Fee = " + totalFee);
+    }
+}
+
+***ouyput***
+-------------------------------------
+           FEE REPORT
+-------------------------------------
+Fee Type             Amount
+-------------------------------------
+Tuition Fee          25000.0
+Exam Fee             2000.0
+-------------------------------------
+Total Fee            27000.0
+-------------------------------------
+
+
