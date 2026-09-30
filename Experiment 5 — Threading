@@ -1,0 +1,251 @@
+...5(a) Creating Threads...
+
+class MyThread extends Thread {
+
+    public void run() {
+        for (int i = 1; i <= 5; i++) {
+            System.out.println("Thread is running: " + i);
+
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                System.out.println("Thread interrupted");
+            }
+        }
+    }
+}
+
+public class CreatingThreads {
+    public static void main(String[] args) {
+
+        MyThread t1 = new MyThread();
+
+        t1.start();
+
+        System.out.println("Main thread is running");
+    }
+}
+
+
+***output***
+Main thread is running
+Thread is running: 1
+Thread is running: 2
+Thread is running: 3
+Thread is running: 4
+Thread is running: 5
+
+
+...5(b)Multithreading with Synchronisation...
+class Counter {
+    int count = 0;
+
+    synchronized void increment() {
+        count++;
+    }
+}
+
+class MyThread extends Thread {
+    Counter c;
+
+    MyThread(Counter c) {
+        this.c = c;
+    }
+
+    public void run() {
+        for (int i = 1; i <= 1000; i++) {
+            c.increment();
+        }
+    }
+}
+
+public class SynchronizationDemo {
+    public static void main(String[] args) {
+
+        Counter c = new Counter();
+
+        MyThread t1 = new MyThread(c);
+        MyThread t2 = new MyThread(c);
+
+        t1.start();
+        t2.start();
+
+        try {
+            t1.join();
+            t2.join();
+        } catch (InterruptedException e) {
+            System.out.println(e);
+        }
+
+        System.out.println("Final count = " + c.count);
+    }
+}
+
+***output***
+Final count = 2000
+
+....Case Study 5 — Ticket Booking Counter...
+
+class TicketCounter {
+    private int tickets = 5;
+
+    // Synchronized method
+    synchronized void bookTicket(String name, int numberOfTickets) {
+
+        if (numberOfTickets <= tickets) {
+            System.out.println(name + " booked "
+                    + numberOfTickets + " ticket(s).");
+
+            tickets = tickets - numberOfTickets;
+
+            System.out.println("Tickets remaining: " + tickets);
+        } else {
+            System.out.println(name + " could not book "
+                    + numberOfTickets + " ticket(s).");
+
+            System.out.println("Only " + tickets
+                    + " ticket(s) available.");
+        }
+    }
+}
+
+class Customer extends Thread {
+    TicketCounter counter;
+    String name;
+    int tickets;
+
+    Customer(TicketCounter counter, String name, int tickets) {
+        this.counter = counter;
+        this.name = name;
+        this.tickets = tickets;
+    }
+
+    public void run() {
+        counter.bookTicket(name, tickets);
+    }
+}
+
+public class TicketBookingCounter {
+
+    public static void main(String[] args) {
+
+        TicketCounter counter = new TicketCounter();
+
+        Customer c1 = new Customer(counter, "Ravi", 2);
+        Customer c2 = new Customer(counter, "Sita", 2);
+        Customer c3 = new Customer(counter, "Kiran", 2);
+
+        c1.start();
+        c2.start();
+        c3.start();
+
+        try {
+            c1.join();
+            c2.join();
+            c3.join();
+        } catch (InterruptedException e) {
+            System.out.println("Thread interrupted");
+        }
+
+        System.out.println("Ticket booking process completed.");
+    }
+}
+
+***output***
+Ravi booked 2 ticket(s).
+Tickets remaining: 3
+Sita booked 2 ticket(s).
+Tickets remaining: 1
+Kiran could not book 2 ticket(s).
+Only 1 ticket(s) available.
+Ticket booking process completed.
+
+....Add Thread.sleep(50) inside book() and see the race condition appear much more offer....
+
+class TicketCounter {
+    private int tickets = 5;
+
+    void book(String name, int numberOfTickets) {
+
+        if (numberOfTickets <= tickets) {
+
+            System.out.println(name + " is trying to book "
+                    + numberOfTickets + " ticket(s).");
+
+            try {
+                Thread.sleep(50);
+            } catch (InterruptedException e) {
+                System.out.println("Thread interrupted");
+            }
+
+            tickets = tickets - numberOfTickets;
+
+            System.out.println(name + " booked "
+                    + numberOfTickets + " ticket(s).");
+
+            System.out.println("Tickets remaining: " + tickets);
+
+        } else {
+            System.out.println(name + " could not book "
+                    + numberOfTickets + " ticket(s).");
+
+            System.out.println("Only " + tickets
+                    + " ticket(s) available.");
+        }
+    }
+}
+
+class Customer extends Thread {
+    TicketCounter counter;
+    String name;
+    int numberOfTickets;
+
+    Customer(TicketCounter counter, String name, int numberOfTickets) {
+        this.counter = counter;
+        this.name = name;
+        this.numberOfTickets = numberOfTickets;
+    }
+
+    public void run() {
+        counter.book(name, numberOfTickets);
+    }
+}
+
+public class TicketBookingRaceCondition {
+
+    public static void main(String[] args) {
+
+        TicketCounter counter = new TicketCounter();
+
+        Customer c1 = new Customer(counter, "Ravi", 2);
+        Customer c2 = new Customer(counter, "Sita", 2);
+        Customer c3 = new Customer(counter, "Kiran", 2);
+
+        c1.start();
+        c2.start();
+        c3.start();
+
+        try {
+            c1.join();
+            c2.join();
+            c3.join();
+        } catch (InterruptedException e) {
+            System.out.println("Thread interrupted");
+        }
+
+        System.out.println("Booking process completed.");
+    }
+}
+
+***output***
+Ravi is trying to book 2 ticket(s).
+Sita is trying to book 2 ticket(s).
+Kiran is trying to book 2 ticket(s).
+Ravi booked 2 ticket(s).
+Tickets remaining: 3
+Sita booked 2 ticket(s).
+Tickets remaining: 1
+Kiran booked 2 ticket(s).
+Tickets remaining: -1
+Booking process completed.
+
