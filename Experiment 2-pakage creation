@@ -55,7 +55,7 @@ Tuition Fee = 25000.0
 Exam Fee = 2000.0
 Total Fee = 27000.0
 
-...Add a third package com.scsvmv.fee.report that prints the table,and fee apply on call give code and output
+...Add a third package com.scsvmv.fee.report that prints the table,and fee apply on call...
 
 package com.scsvmv.student;
 
