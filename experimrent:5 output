@@ -12,3 +12,11 @@ Thread is running: 5
 Final count = 2000
 
 //Case Study 5 — Ticket Booking Counter.
+
+Ravi booked 2 ticket(s).
+Tickets remaining: 3
+Sita booked 2 ticket(s).
+Tickets remaining: 1
+Kiran could not book 2 ticket(s).
+Only 1 ticket(s) available.
+Ticket booking process completed.
