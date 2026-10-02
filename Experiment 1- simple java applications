@@ -30,12 +30,6 @@ public class StudentDemo {
     }
 }
 
-  ...OUTPUT...
-
-ROLL NAME MARKS
-101 Aravind 78
-102 Divya 91
-
 
 // Ex 1(b): array + for loop + if-else + operators
 
@@ -61,15 +55,6 @@ public class MarksArray {
         System.out.println("Average = " + average);
     }
 }
-
-...OUTPUT...
-78 Pass
-91 Pass
-45 Fail
-66 Pass
-88 Pass
-Total = 368
-Average = 73.6
 
 
 // Ex 1(c): Common String methods
@@ -97,16 +82,6 @@ public class StringDemo {
     }
 }
 
-
-...Output...
-
-Length : 17
-Upper case : SCSVMV UNIVERSITY
-First six : SCSVMV
-Position of U : 7
-Replace S->X : XCXVMV UniverXity
-Original : SCSVMV University
-madam is a palindrome
 
 
 // Case Study 1: Mess Bill using an array of objects
@@ -150,19 +125,9 @@ public class MessBill {
 }
 
 
-...Output...
 
-NAME       DAYS     BILL
-Aravind      28  2380.00
-Divya        30  2550.00
-Karthik      25  2125.00
-Total collection = Rs. 7055.00
+*** Add a rebate: if days are less than 26, give a 10% discount.
 
-
-
-• Add a rebate: if days are less than 26, give a 10% discount.
-
-```java
 import java.util.Scanner;
 
 class Boarder {
@@ -227,7 +192,6 @@ public class MessBill {
 
 ### Sample Input
 
-
 Enter number of students: 3
 Enter name: Aravind
 Enter days: 28
@@ -237,14 +201,6 @@ Enter name: Karthik
 Enter days: 25
 
 
-### Output
 
-
-NAME       DAYS     BILL
-Aravind      28  2380.00
-Divya        30  2550.00
-Karthik      25  1912.50
-
-Total collection = Rs. 6842.50
 
 
