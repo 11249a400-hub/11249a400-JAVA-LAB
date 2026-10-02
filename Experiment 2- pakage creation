@@ -1,4 +1,4 @@
-...2.1 — MathUtil.java...
+//2.1 — MathUtil.java...
 
 import com.scsvmv.util.MathUtil;
 
@@ -8,11 +8,9 @@ public class Test {
         System.out.println(MathUtil.cube(5));
     }
 }
-***output***
-25
-125
 
-Program 2.2 — UseMath.java
+
+//Program 2.2 — UseMath.java
 
 import com.scsvmv.util.MathUtil;
 
@@ -25,9 +23,6 @@ public class UseMath {
     }
 }
 
-***output**
-Square of 7 = 49
-Cube of 3 = 27
 
 Case Study 2 — Two-Package Fee Calculator
 
@@ -50,12 +45,7 @@ public class Student {
     }
 }
 
-***output***
-Tuition Fee = 25000.0
-Exam Fee = 2000.0
-Total Fee = 27000.0
-
-...Add a third package com.scsvmv.fee.report that prints the table,and fee apply on call...
+*** Add a third package com.scsvmv.fee.report that prints the table,and fee apply on call...
 
 package com.scsvmv.student;
 
@@ -74,16 +64,6 @@ public class Student {
     }
 }
 
-***ouyput***
--------------------------------------
-           FEE REPORT
--------------------------------------
-Fee Type             Amount
--------------------------------------
-Tuition Fee          25000.0
-Exam Fee             2000.0
--------------------------------------
-Total Fee            27000.0
--------------------------------------
+
 
 
