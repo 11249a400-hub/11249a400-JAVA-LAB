@@ -24,3 +24,13 @@ Ticket booking process completed.
 
 //Add Thread.sleep(50) inside book() and see the race condition appear much more offer.
 
+Ravi is trying to book 2 ticket(s).
+Sita is trying to book 2 ticket(s).
+Kiran is trying to book 2 ticket(s).
+Ravi booked 2 ticket(s).
+Tickets remaining: 3
+Sita booked 2 ticket(s).
+Tickets remaining: 1
+Kiran booked 2 ticket(s).
+Tickets remaining: -1
+Booking process completed.
