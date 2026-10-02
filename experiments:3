@@ -6,3 +6,15 @@ Area of Rectangle = 50.0
 
 //3(b)Predefined Interface — Comparable
 
+Before Sorting:
+103 - Ravi
+101 - Arun
+102 - Kiran
+
+After Sorting by Roll Number:
+101 - Arun
+102 - Kiran
+103 - Ravi
+
+
+
