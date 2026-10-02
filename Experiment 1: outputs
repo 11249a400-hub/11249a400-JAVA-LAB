@@ -26,7 +26,8 @@ Original : SCSVMV University
 madam is a 
 
 
-//
+//• Add a rebate: if days are less than 26, give a 10% discount.
+
 
 NAME       DAYS     BILL
 Aravind      28  2380.00
