@@ -1,4 +1,4 @@
-...5(a) Creating Threads...
+//5(a) Creating Threads.
 
 class MyThread extends Thread {
 
@@ -27,16 +27,8 @@ public class CreatingThreads {
 }
 
 
-***output***
-Main thread is running
-Thread is running: 1
-Thread is running: 2
-Thread is running: 3
-Thread is running: 4
-Thread is running: 5
 
-
-...5(b)Multithreading with Synchronisation...
+//5(b)Multithreading with Synchronisation...
 class Counter {
     int count = 0;
 
@@ -81,15 +73,12 @@ public class SynchronizationDemo {
     }
 }
 
-***output***
-Final count = 2000
 
-....Case Study 5 — Ticket Booking Counter...
+//Case Study 5 — Ticket Booking Counter...
 
 class TicketCounter {
     private int tickets = 5;
 
-    // Synchronized method
     synchronized void bookTicket(String name, int numberOfTickets) {
 
         if (numberOfTickets <= tickets) {
@@ -151,16 +140,8 @@ public class TicketBookingCounter {
     }
 }
 
-***output***
-Ravi booked 2 ticket(s).
-Tickets remaining: 3
-Sita booked 2 ticket(s).
-Tickets remaining: 1
-Kiran could not book 2 ticket(s).
-Only 1 ticket(s) available.
-Ticket booking process completed.
 
-....Add Thread.sleep(50) inside book() and see the race condition appear much more offer....
+//Add Thread.sleep(50) inside book() and see the race condition appear much more offer....
 
 class TicketCounter {
     private int tickets = 5;
@@ -237,15 +218,4 @@ public class TicketBookingRaceCondition {
     }
 }
 
-***output***
-Ravi is trying to book 2 ticket(s).
-Sita is trying to book 2 ticket(s).
-Kiran is trying to book 2 ticket(s).
-Ravi booked 2 ticket(s).
-Tickets remaining: 3
-Sita booked 2 ticket(s).
-Tickets remaining: 1
-Kiran booked 2 ticket(s).
-Tickets remaining: -1
-Booking process completed.
 
