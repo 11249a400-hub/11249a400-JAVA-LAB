@@ -1,0 +1,8 @@
+// 5(a) Creating Threads.
+
+Main thread is running
+Thread is running: 1
+Thread is running: 2
+Thread is running: 3
+Thread is running: 4
+Thread is running: 5
