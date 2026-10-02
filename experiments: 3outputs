@@ -22,3 +22,4 @@ payment = new CreditCardPayment();
 payment = new UPIPayment();
 payment = new CashPayment();
 
+//Add a default method in the interface that returns the total,and remove the arithmetic from main.
