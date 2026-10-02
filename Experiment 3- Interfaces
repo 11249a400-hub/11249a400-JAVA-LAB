@@ -1,4 +1,4 @@
-...3(a)shape demo.java 
+//3(a)shape demo.java 
 
 abstract class Shape {
 
@@ -38,12 +38,7 @@ public class ShapeDemo {
     }
 }
 
-
-***output***
-Area of Circle = 78.53981633974483
-Area of Rectangle = 50.0
-
-....3(b)Predefined Interface — Comparable...
+//3(b)Predefined Interface — Comparable...
 
 class Student implements Comparable<Student> {
 
@@ -55,7 +50,6 @@ class Student implements Comparable<Student> {
         this.name = name;
     }
 
-    // Compare students based on roll number
     @Override
     public int compareTo(Student other) {
         return this.rollNo - other.rollNo;
@@ -92,18 +86,8 @@ public class ComparableDemo {
     }
 }
 
-***output***
-Before Sorting:
-103 - Ravi
-101 - Arun
-102 - Kiran
 
-After Sorting by Roll Number:
-101 - Arun
-102 - Kiran
-103 - Ravi
-
-...case stufy 3:Payment Methods .....
+//case stufy 3:Payment Methods .....
 
 interface Payment {
 
@@ -151,12 +135,7 @@ public class PaymentDemo {
     }
 }
 
-***output***
-payment = new CreditCardPayment();
-payment = new UPIPayment();
-payment = new CashPayment();
-
-....Add a default method in the interface that returns the total,and remove the arithmetic from main.
+***Add a default method in the interface that returns the total,and remove the arithmetic from main.
 
 interface Payment {
 
@@ -164,7 +143,6 @@ interface Payment {
 
     double getTax();
 
-    // Default method to calculate total
     default double getTotal() {
         return getAmount() + getTax();
     }
@@ -210,14 +188,3 @@ public class PaymentMethods {
         System.out.println("UPI Total: " + p2.getTotal());
     }
 }
-
-***output***
-
-Credit Card Amount: 1000.0
-Credit Card Tax: 50.0
-Credit Card Total: 1050.0
-
-UPI Amount: 2000.0
-UPI Tax: 100.0
-UPI Total: 2100.0
-....
