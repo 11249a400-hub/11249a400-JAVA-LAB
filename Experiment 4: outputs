@@ -21,4 +21,5 @@ Anu         12000.00
 
 // Mark pay() as final in Manager and try to override it in a subclass.
 
-
+Manager Pay: 50000.0
+Senior Manager Pay: 50000.0
