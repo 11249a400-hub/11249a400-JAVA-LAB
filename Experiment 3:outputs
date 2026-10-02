@@ -1,0 +1,33 @@
+// 3(a)shape demo.java
+
+Area of Circle = 78.53981633974483
+Area of Rectangle = 50.0
+
+
+// 3(b)Predefined Interface — Comparable
+
+Before Sorting:
+103 - Ravi
+101 - Arun
+102 - Kiran
+
+After Sorting by Roll Number:
+101 - Arun
+102 - Kiran
+103 - Ravi
+
+// case stufy 3:Payment Methods .
+
+payment = new CreditCardPayment();
+payment = new UPIPayment();
+payment = new CashPayment();
+
+// Add a default method in the interface that returns the total,and remove the arithmetic from main.
+
+Credit Card Amount: 1000.0
+Credit Card Tax: 50.0
+Credit Card Total: 1050.0
+
+UPI Amount: 2000.0
+UPI Tax: 100.0
+UPI Total: 2100.0
