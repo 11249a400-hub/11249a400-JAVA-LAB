@@ -22,7 +22,8 @@ Refused : Balance is only 3000.0
 Dispensed 1500.0, balance 1500.0
 
 
-***
+*** catch the two exceptions separetly and guive a differnt message for each ***
+
 Dispensed 2000.0, balance 3000.0
 Invalid Amount : 350.0 is not a multiple of 100
 Low Balance : Balance is only 3000.0
