@@ -11,3 +11,18 @@ public class StringDemo {
         System.out.println("First six : " + s.substring(0, 6));
         System.out.println("Position of U : " + s.indexOf('U'));
         System.out.println("Replace S->X : " + s.replace('S', 'X'));
+        System.out.println("Original : " + s);
+
+        String a = "madam";
+        String b = new StringBuilder(a).reverse().toString();
+
+        if (a.equals(b)) {
+            System.out.println(a + " is a palindrome");
+        } else {
+            System.out.println(a + " is not a palindrome");
+        }
+    }
+}
+
+
+
