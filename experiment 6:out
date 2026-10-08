@@ -14,9 +14,16 @@ Rejected : Age 15 is below 18
 
 
 
-Case study :
+Case study :ATM WITHDRAW
 
 Dispensed 2000.0, balance 3000.0
 Refused : 350.0 is not a multiple of 100
 Refused : Balance is only 3000.0
+Dispensed 1500.0, balance 1500.0
+
+
+***
+Dispensed 2000.0, balance 3000.0
+Invalid Amount : 350.0 is not a multiple of 100
+Low Balance : Balance is only 3000.0
 Dispensed 1500.0, balance 1500.0
