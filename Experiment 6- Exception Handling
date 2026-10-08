@@ -34,7 +34,7 @@ public class PredefinedDemo {
 }
 
 
-...6(b)User-Defined Exception...
+...6(b): User-Defined Exception...
 
 class InvalidAgeException extends Exception {
 
@@ -117,11 +117,6 @@ public class ATM {
     }
 }
 
-***output***
-Dispensed 2000.0, balance 3000.0
-Refused : 350.0 is not a multiple of 100
-Refused : Balance is only 3000.0
-Dispensed 1500.0, balance 1500.0
 
 ...Catch the two exceptions separately and give a different message for each....
 
@@ -183,10 +178,6 @@ public class ATM {
     }
 }
 
-***output***
-Dispensed 2000.0, balance 3000.0
-Invalid Amount : 350.0 is not a multiple of 100
-Low Balance : Balance is only 3000.0
-Dispensed 1500.0, balance 1500.0
+
 
 
