@@ -65,9 +65,7 @@ public class UserDefinedDemo {
     }
 }
 
-***output***
-Age 21 accepted
-Rejected : Age 15 is below 18
+
 
 ....case Study 6 — ATM Withdrawal...
 
