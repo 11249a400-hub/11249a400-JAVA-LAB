@@ -167,7 +167,7 @@ public class SalarySlip {
         };
 
         System.out.printf("%-8s %10s%n", "Name", "Salary");
-        System.out.println("----------------------");
+        System.out.println(" ");
 
         for (Emp x : e) {
             System.out.printf("%-8s %10.2f%n", x.name, x.pay());
