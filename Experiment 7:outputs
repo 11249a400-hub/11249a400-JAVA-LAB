@@ -12,7 +12,13 @@ ROLL     NAME         MARKS
 102      Divya        91
 103      Karthik      45
 
-// csae study
+// csae study:
+
+101,Aravind,78
+102,Divya,91
+103,Karthik,45
+
+//Use new File("student.txt").exists() to check the file before opening it.
 
 101,Aravind,78
 102,Divya,91
