@@ -106,3 +106,68 @@ public class ResultReport {
     }
 }
 
+
+
+//  Read a File, Process It, Write a Report
+
+import java.io.*;
+
+public class ResultReport {
+    public static void main(String[] args) {
+        int pass = 0, fail = 0, total = 0, n = 0;
+
+        File file = new File("student.txt");
+
+        // Check whether the input file exists
+        if (!file.exists()) {
+            System.out.println("Error: student.txt not found.");
+            return;
+        }
+
+        try (
+            BufferedReader br =
+                new BufferedReader(new FileReader(file));
+            PrintWriter pw = new PrintWriter("result.txt")
+        ) {
+            String line;
+
+            while ((line = br.readLine()) != null) {
+                String[] f = line.split(",");
+
+                if (f.length != 3) {
+                    continue;
+                }
+
+                int m = Integer.parseInt(f[2].trim());
+
+                total += m;
+                n++;
+
+                if (m >= 50) {
+                    pass++;
+                    pw.println(f[1] + " PASS");
+                } else {
+                    fail++;
+                    pw.println(f[1] + " FAIL");
+                }
+            }
+
+            pw.println("Passed : " + pass);
+            pw.println("Failed : " + fail);
+
+            double average = (n > 0) ? (double) total / n : 0.0;
+            pw.printf("Average : %.2f%n", average);
+
+            System.out.println(
+                "result.txt created. Passed " + pass +
+                ", failed " + fail
+            );
+
+        } catch (IOException e) {
+            System.out.println("File error: " + e.getMessage());
+        } catch (NumberFormatException e) {
+            System.out.println("Error: Invalid marks in student.txt");
+        }
+    }
+}
+
