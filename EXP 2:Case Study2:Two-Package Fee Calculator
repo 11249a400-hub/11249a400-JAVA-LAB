@@ -1,0 +1,20 @@
+//Case Study 2 — Two-Package Fee Calculator
+
+package com.scsvmv.student;
+
+import com.scsvmv.fee.FeeCalculator;
+
+public class Student {
+
+    public static void main(String[] args) {
+
+        double tuitionFee = 25000;
+        double examFee = 2000;
+
+        double totalFee = FeeCalculator.calculateFee(tuitionFee, examFee);
+
+        System.out.println("Tuition Fee = " + tuitionFee);
+        System.out.println("Exam Fee = " + examFee);
+        System.out.println("Total Fee = " + totalFee);
+    }
+}
