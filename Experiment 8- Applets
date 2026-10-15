@@ -150,3 +150,35 @@ g.fillRect(20 + i * 50, 150 - marks[i], 40, marks[i]);
 }
 }
 }
+
+
+//Write the mark as a number on top of each bar with drawString.
+
+import java.applet.Applet;
+import java.awt.*;
+
+public class BarChart extends Applet {
+
+    int[] marks = {78, 91, 45, 65};
+    String[] names = {"Aravind", "Divya", "Karthik", "Ravi"};
+
+    public void paint(Graphics g) {
+        int x = 40;
+        int base = 200;
+
+        for (int i = 0; i < marks.length; i++) {
+            int height = marks[i];
+
+            g.setColor(Color.BLUE);
+            g.fillRect(x, base - height, 40, height);
+
+            g.setColor(Color.BLACK);
+            g.drawString(String.valueOf(marks[i]),
+                         x + 10, base - height - 5);
+
+            g.drawString(names[i], x - 5, base + 20);
+
+            x += 70;
+        }
+    }
+}
