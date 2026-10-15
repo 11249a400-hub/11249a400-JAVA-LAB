@@ -1,0 +1,13 @@
+//7.1:WriteFile.java
+
+101,Aravind,78
+102,Divya,91
+103,Karthik,45
+
+
+//7.2:ReadFile.java
+
+ROLL     NAME         MARKS
+101      Aravind      78
+102      Divya        91
+103      Karthik      45
